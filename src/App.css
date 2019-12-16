@@ -1,0 +1,44 @@
+.container{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;    
+  background-color: #3498DB;
+  color: white;
+  padding: 50px;
+  margin: 30px;
+}
+.add{
+  height: 50px;
+  width: 100%; 
+  border-radius: 7px;
+  border: 2px solid white;
+}
+.subm{
+  background-color: #3498DB;
+  color: white;
+  border: 2px solid white;
+  border-radius: 7px;
+  width: 100px;
+  height: 50px;
+  font-size: 20px;
+}
+h1{
+  text-align: center;
+}
+
+
+li{
+  list-style-type:none;
+  
+}
+ul{
+  
+  display: flex;
+  justify-content:column;
+  justify-content: space-between;
+  
+}
+#demoList{
+  display: flex;
+  flex-direction: column;
+}
