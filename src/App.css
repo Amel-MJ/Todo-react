@@ -42,3 +42,9 @@ ul{
   display: flex;
   flex-direction: column;
 }
+.complit{
+  text-decoration: none;
+}
+.undo{
+  text-decoration: line-through;
+}
