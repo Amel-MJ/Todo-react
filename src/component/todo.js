@@ -3,19 +3,33 @@ class todo extends Component {
   state = {
     item: "",
     listtodo: [],
-    complit: "complit"
-  };
-  getinput = e => {
-    this.setState({ item: e.target.value });
+  
   };
   addtodo = () => {
-    this.setState({ listtodo: [...this.state.listtodo, this.state.item] });
+    this.setState({listtodo: [...this.state.listtodo, {input:this.state.item,complete:true}],item:''}
+      );
+     
+
   };
-  complit = () => {
+  getinput = e => {
+    this.setState({ item: e.target.value});
+    
+  };
+  
+  complit = (i) => {
     this.setState({
-      complit: this.state.complit === "complit" ? "undo" : "complit"
+      listtodo:this.state.listtodo.map((el,z)=>z===i?{input:el.input,complete:!el.complete}:el
+
+      )
     });
   };
+  
+  delete = (x) => {
+      this.setState({
+        listtodo:this.state.listtodo.filter((el,i) => x!==i)
+      })
+  }
+
 
   render() {
     return (
@@ -28,6 +42,7 @@ class todo extends Component {
             placeholder="Enter new task"
             className="add"
             onChange={this.getinput}
+            value={this.state.item}
           />{" "}
           <br />
           <input
@@ -48,12 +63,12 @@ class todo extends Component {
                   <li>
                     <span>
                       {this.state.listtodo.map((el, i) => (
-                        <div key={i}>
-                          <button onClick={this.complit}>
-                            {this.state.complit}
+                        <div >
+                          <button onClick={()=>this.complit(i)}>
+                            {el.complete?'complete':'undo'}
                           </button>
-                          <button> delete</button>
-                          <span className={this.state.complit}>{el}</span>
+                          <button onClick={()=>this.delete(i)}> delete</button>
+                          <span className={el.complete?'complete':'undo'}>{el.input}</span>
                         </div>
                       ))}
                     </span>
